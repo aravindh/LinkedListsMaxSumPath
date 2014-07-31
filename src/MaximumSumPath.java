@@ -120,22 +120,15 @@ public class MaximumSumPath {
         Node head1 = new Node(0, null);
         Node head2 = new Node(0, null);
         Node current = head1;
-        current.next = new Node(1,null); current = current.next;
-        current.next = new Node(3, null); current = current.next;
-        current.next = new Node(30,null); current = current.next;
-        current.next = new Node(90,null); current = current.next;
-        current.next = new Node(120,null); current = current.next;
-        current.next = new Node(240, null); current = current.next;
-        current.next = new Node(511,null);
+        for(String num :args[0].split(",")){
+            current.next = new Node(Integer.parseInt(num), null);
+            current = current.next;
+        }
         current = head2;
-        current.next = new Node(0,null); current = current.next;
-        current.next = new Node(3, null); current = current.next;
-        current.next = new Node(12,null); current = current.next;
-        current.next = new Node(32,null); current = current.next;
-        current.next = new Node(90,null); current = current.next;
-        current.next = new Node(125,null); current = current.next;
-        current.next = new Node(240, null); current = current.next;
-        current.next = new Node(249, null);
+        for(String num :args[1].split(",")){
+            current.next = new Node(Integer.parseInt(num), null);
+            current = current.next;
+        }
         displayList(head1.next);
         displayList(head2.next);
         Node maxPathHead = getMaximumSumPath(head2.next, head1.next);
